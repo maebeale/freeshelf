@@ -32,7 +32,6 @@ gem 'slim', '~> 2.0.3'
 gem 'sprig', '~> 0.1.6'
 
 group :production do
-  gem 'rails_12factor'
   gem 'postmark-rails'
   gem 'unicorn', '~> 4.8.3'
 end
@@ -40,17 +39,23 @@ end
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "brakeman"
-  gem 'capybara'
-  gem 'database_cleaner'
+  gem "brakeman", :require => false
   gem 'dotenv-rails'
-  gem 'launchy'
-  gem 'poltergeist'
   gem "pry-rails"
   gem 'quiet_assets'
-  gem "rails_best_practices"
-  gem "rake"
   gem "wrong"
   gem 'nokogiri'
+  gem "rails_best_practices", :require => false
+  gem "rake", :require => false
+end
 
+group :test do
+  gem 'capybara', :require => false
+  gem 'database_cleaner'
+  gem 'headless', :require => false
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'simplecov', '~> 0.7.1', :require => false
+  gem 'selenium-webdriver'
+  gem "wrong", :require => false
 end

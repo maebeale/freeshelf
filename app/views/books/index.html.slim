@@ -1,4 +1,11 @@
 .row
-  .large-12.columns
+  - if @tag
+    h2
+      | Books tagged with "#{@tag}"
+      span< = favorite_link_to @tag
+  .large-12.columns.book_content
     = render 'books', :books => @books
 
+- content_for(:sort_function)
+  #sort_button
+    = render 'layouts/sort_list'
